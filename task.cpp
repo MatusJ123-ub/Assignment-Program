@@ -10,41 +10,41 @@ Task::Task(string desc, string prio, string date) {
 }
 
 string Task::getDescription() {
-    // TODO: Return the description of this task
+    return description; //Return the description of this task
 }
 
 string Task::getPriority() {
-    // TODO: Return the priority of this task
+    return priority; //Return the priority of this task
 }
 
 string Task::getDueDate() {
-    // TODO: Return the due date of this task
+    return dueDate; //Return the due date of this task
 }
 
 bool Task::getIsComplete() {
-    // TODO: Return whether the task is complete or not
+    return isComplete; //Return whether the task is complete or not
 }
 
 Task* Task::getNext() {
-    // TODO: Return pointer to the next task in the list
+    return next; //Return pointer to the next task in the list
 }
 
 void Task::setDescription(string desc) {
-    // TODO: Set the description of this task to the provided value
+    description = desc; //Set the description of this task to the provided value
 }
 
 void Task::setPriority(string prio) {
-    // TODO: Set the priority of this task to the provided value
+    priority = prio; //Set the priority of this task to the provided value
 }
 
 void Task::setDueDate(string date) {
-    // TODO: Set the due date of this task to the provided value
+    dueDate = date; //Set the due date of this task to the provided value
 }
 
 void Task::setIsComplete(bool complete) {
-    // TODO: Set the completion status of this task to the provided value
+    isComplete = complete; //Set the completion status of this task to the provided value
 }
 
 void Task::setNext(Task* nextTask) {
-    // TODO: Set the next pointer to the provided task
+    next = nextTask; //Set the next pointer to the provided task
 }
