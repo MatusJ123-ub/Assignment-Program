@@ -43,6 +43,20 @@ int main() {
             // The rest of the menu implementation here
             //commiting to github
         }
+
+        /*
+         switch (choice) {
+            case 1: {
+                cout << "Enter task description: ";
+                getline(cin, description);
+                cout << "Enter priority (High/Medium/Low): ";
+                getline(cin, priority);
+                cout << "Enter due date: ";
+                getline(cin, dueDate);
+                taskList.addTask(description, priority, dueDate);
+                break;
+            }
+*/
     }
     return 0;
 }
