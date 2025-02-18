@@ -11,7 +11,8 @@ void displayMenu() {
               << "5. Display Tasks by Priority\n"
               << "6. Search for Task\n"
               << "7. Exit\n"
-              << "Enter your choice: ";
+              << "Enter your choice: "
+              << "yes";
 }
 
 int main() {
@@ -40,6 +41,7 @@ int main() {
             }
 
             // The rest of the menu implementation here
+            //commiting to github
         }
     }
     return 0;
