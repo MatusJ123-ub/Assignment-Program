@@ -38,9 +38,27 @@ int main() {
                 getline(cin, dueDate);
                 taskList.addTask(description, priority, dueDate);
                 break;
+
+                //case 2: remove Task 
+                
+
+                //case 3: Mark task as complete
+
+                //case 4 Display all Tasks
+
+                //case 5 Display tasks by priority 
+
+                //case 6: Search a task
+
+                //case 7 Exit
+                
+
+
+
+                
             }
         }
     }
-    
+
     return 0;
 }
