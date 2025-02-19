@@ -39,18 +39,37 @@ int main() {
                 taskList.addTask(description, priority, dueDate);
                 break;
 
-                //case 2: remove Task 
+                case 2: //remove Task 
+                cout << "Enter task to remove: ";
+                getline(cin, description);
+                taskList.removeTask(description);
+                break; 
                 
 
-                //case 3: Mark task as complete
+                case 3: //Mark task as complete
+                cout << "Enter task to mark as complete";
+                getline(cin,description);
+                taskList.markTaskComplete(description);
+                break;
 
-                //case 4 Display all Tasks
+                case 4: //Display all Tasks
+                taskList.displayAllTasks();
 
-                //case 5 Display tasks by priority 
+                case 5: //Display tasks by priority
+                cout << "Enter priority to filter by (High/Medium/Low): ";
+                getline(cin, priority);
+                taskList.displayByPriority(priority);
+                break;  
+
 
                 //case 6: Search a task
+               
+
+
 
                 //case 7 Exit
+                cout << "Exiting Task Manager. \n";
+                return 0;
                 
 
 
