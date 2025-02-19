@@ -60,7 +60,8 @@ void TaskList::addTask(string description, string priority, string dueDate) {
 
 void TaskList::removeTask(string description) {
     //Implement removeTask
-    if (!head) {
+    if (!head)
+     {
         cout << "Task list is empty. Nothing to remove.\n";
         return;
     }
@@ -69,14 +70,17 @@ void TaskList::removeTask(string description) {
     Task* previous = nullptr;
 
     while (current) {
-        if (current->getDescription() == description) {
-            if (!previous) {
+        if (current->getDescription() == description)
+         {
+            if (!previous) 
+            {
                 head = current->getNext();
             } else {
                 previous->setNext(current->getNext());
             }
 
-            if (current == tail) {
+            if (current == tail)
+             {
                 tail = previous;
             }
 
@@ -93,13 +97,37 @@ void TaskList::removeTask(string description) {
     cout << "Task \"" << description << "\" not found.\n";
 }
 
-
 void TaskList::markTaskComplete(string description) {
-    // TODO: Implement markTaskComplete
+    Task* current = head;
+
+    while (current) {
+        if (current->getDescription() == description) {
+            current->setIsComplete(true);
+            cout << "Task \"" << description << "\" marked as complete.\n";
+            return;
+        }
+        current = current->getNext();
+    }
+
+    cout << "Task \"" << description << "\" not found.\n";
 }
 
 void TaskList::displayAllTasks() {
-    // TODO: Implement displayAllTasks
+    if (!head) {
+        cout << "Task list is empty.\n";
+        return;
+    }
+
+    Task* current = head;
+    cout << "\n=== Task List ===\n";
+
+    while (current) {
+        cout << "Description: " << current->getDescription() << "\n"
+             << "Priority: " << current->getPriority() << "\n"
+             << "Due Date: " << current->getDueDate() << "\n"
+             << "Completion Status: " << (current->getIsComplete() ? "Complete" : "Incomplete") << "\n\n";
+        current = current->getNext();
+    }
 }
 
 void TaskList::displayByPriority(string priority) {
