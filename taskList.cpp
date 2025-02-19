@@ -2,16 +2,19 @@
 #include <iostream>
 using namespace std;
 
-// Setup a new TaskList
-TaskList::TaskList() {
+// Setup a new TaskList (constructor)
+TaskList::TaskList()
+ {
     head = nullptr;
     tail = nullptr;
     count = 0;
 }
 
-TaskList::~TaskList() {
-    
-    Task* current = head;  //Implement destructor
+// Cleans up dynamically allocate memory (Desctructor)
+TaskList::~TaskList() 
+{
+
+    Task* current = head;
     while (current != nullptr)
     {
         Task* temp = current; 
@@ -20,22 +23,23 @@ TaskList::~TaskList() {
     }
 }
 
+//Adds a task to the task list 
+void TaskList::addTask(string description, string priority, string dueDate) 
+{
 
-void TaskList::addTask(string description, string priority, string dueDate) {
-    //Implement addTask
-    Task* newTask = new Task(description, priority, dueDate);
+    Task* newTask = new Task(description, priority, dueDate); //Creates a new task
 
     if (!head) 
     {
         head = tail = newTask;
-    } else if (priority == "High") {
+    } else if (priority == "High") {    
         newTask->setNext(head);
         head = newTask;
-    } else {
+    } else {  
         Task* current = head;
         Task* previous = nullptr;
 
-        while (current && (current->getPriority() == "High" || (current->getPriority() == "Medium" && priority == "Low"))) 
+        while (current && (current->getPriority() == "High" || (current->getPriority() == "Medium" && priority == "Low"))) //finds correct position based on priority.
         {
             previous = current;
             current = current->getNext();
@@ -57,9 +61,9 @@ void TaskList::addTask(string description, string priority, string dueDate) {
     }
     count++;
 }
-
+//Removes a task based on its description/name. 
 void TaskList::removeTask(string description) {
-    //Implement removeTask
+
     if (!head)
      {
         cout << "Task list is empty. Nothing to remove.\n";
@@ -69,8 +73,8 @@ void TaskList::removeTask(string description) {
     Task* current = head;
     Task* previous = nullptr;
 
-    while (current) {
-        if (current->getDescription() == description)
+    while (current) { //Traverses the list
+        if (current->getDescription() == description) //if task is found
          {
             if (!previous) 
             {
@@ -84,7 +88,7 @@ void TaskList::removeTask(string description) {
                 tail = previous;
             }
 
-            delete current;
+            delete current;  //deletes task
             count--;
             cout << "Task \"" << description << "\" removed successfully.\n";
             return;
@@ -97,6 +101,7 @@ void TaskList::removeTask(string description) {
     cout << "Task \"" << description << "\" not found.\n";
 }
 
+//Marks a task as complete based on its description. 
 void TaskList::markTaskComplete(string description) {
     Task* current = head;
 
@@ -112,6 +117,7 @@ void TaskList::markTaskComplete(string description) {
     cout << "Task \"" << description << "\" not found.\n";
 }
 
+//Displays all tasks  placed by user. 
 void TaskList::displayAllTasks() {
     if (!head) {
         cout << "Task list is empty.\n";
@@ -121,7 +127,7 @@ void TaskList::displayAllTasks() {
     Task* current = head;
     cout << "\n=== Task List ===\n";
 
-    while (current) {
+    while (current) { //Traverses List 
         cout << "Description: " << current->getDescription() << "\n"
              << "Priority: " << current->getPriority() << "\n"
              << "Due Date: " << current->getDueDate() << "\n"
@@ -130,9 +136,12 @@ void TaskList::displayAllTasks() {
     }
 }
 
+//Displays taks by priority. 
 void TaskList::displayByPriority(string priority) {
    //fix 
 }
+
+//Searches for a task based on description/name and returns a pointer. 
 Task* TaskList::searchTask(string description) {
     Task* current = head;
 
@@ -146,6 +155,7 @@ Task* TaskList::searchTask(string description) {
     return nullptr;
 }
 
+//returns the total number of tasks in the list. 
 int TaskList::getTaskCount() {
     return count;
 }
