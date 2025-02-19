@@ -30,42 +30,42 @@ int main() {
         switch (choice) {
             case 1:
                 cout << "Enter task description: ";
-                getline(cin, description);
+                getline(cin, description);     //Gets task description from user input 
                 cout << "Enter priority (High/Medium/Low): ";
-                getline(cin, priority);
+                getline(cin, priority);        //GEt priority level from user input 
                 cout << "Enter due date (format: YYYY-MM-DD): ";
-                getline(cin, dueDate);
-                taskList.addTask(description, priority, dueDate);
+                getline(cin, dueDate);         //Gets due date from user input 
+                taskList.addTask(description, priority, dueDate);  //adds task to the list
                 cout << "Task added successfully!\n";
                 break;
 
             case 2:
                 cout << "Enter the description of the task to remove: ";
-                getline(cin, description);
-                taskList.removeTask(description);
+                getline(cin, description);     //gets task description from user input 
+                taskList.removeTask(description);  //calls function to remove task from the list. 
                 break;
 
             case 3:
                 cout << "Enter the description of the task to mark as complete: ";
-                getline(cin, description);
-                taskList.markTaskComplete(description);
+                getline(cin, description);    //gets description of task
+                taskList.markTaskComplete(description);  //calls function to mark task as complete. 
                 break;
 
             case 4:
-                taskList.displayAllTasks();
+                taskList.displayAllTasks();     //Calls function to displaty all tasks inputted by user. 
                 break;
 
             case 5:
                 cout << "Enter priority to filter by (High/Medium/Low): ";
-                getline(cin, priority);
-                taskList.displayByPriority(priority);
+                getline(cin, priority);       //Input priority to filter tasks.
+                taskList.displayByPriority(priority);  //calls functions to display tasks by priority
                 break;
 
-            case 6:
+            case 6: //Search for task description.
                 cout << "Enter the description of the task to search: ";
-                getline(cin, description);
+                getline(cin, description); //get task description from user input
                 {
-                    Task* task = taskList.searchTask(description);
+                    Task* task = taskList.searchTask(description); //if task is found it displays the details.
                     if (task) {
                         cout << "\n=== Task Found ===\n"
                              << "Description: " << task->getDescription() << "\n"
@@ -73,16 +73,16 @@ int main() {
                              << "Due Date: " << task->getDueDate() << "\n"
                              << "Completion Status: " << (task->getIsComplete() ? "Complete" : "Incomplete") << "\n"; 
                     }else {
-                        cout << "task not found.\n";
+                        cout << "task not found.\n";  //if task is not found, it notifes the user. 
                     }
                 }
                     break; 
 
-        case 7: // Exit
+        case 7: 
         cout << "Exiting Task Manager. Goodbye!\n";
         return 0;
 
-         default: // Invalid choice
+         default: 
         cout << "Invalid choice. Please try again.\n";
         break;
     }
