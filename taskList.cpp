@@ -59,8 +59,40 @@ void TaskList::addTask(string description, string priority, string dueDate) {
 }
 
 void TaskList::removeTask(string description) {
-    // TODO: Implement removeTask
+    //Implement removeTask
+    if (!head) {
+        cout << "Task list is empty. Nothing to remove.\n";
+        return;
+    }
+
+    Task* current = head;
+    Task* previous = nullptr;
+
+    while (current) {
+        if (current->getDescription() == description) {
+            if (!previous) {
+                head = current->getNext();
+            } else {
+                previous->setNext(current->getNext());
+            }
+
+            if (current == tail) {
+                tail = previous;
+            }
+
+            delete current;
+            count--;
+            cout << "Task \"" << description << "\" removed successfully.\n";
+            return;
+        }
+
+        previous = current;
+        current = current->getNext();
+    }
+
+    cout << "Task \"" << description << "\" not found.\n";
 }
+
 
 void TaskList::markTaskComplete(string description) {
     // TODO: Implement markTaskComplete
