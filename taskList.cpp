@@ -22,7 +22,40 @@ TaskList::~TaskList() {
 
 
 void TaskList::addTask(string description, string priority, string dueDate) {
-    // TODO: Implement addTask
+    //Implement addTask
+    Task* newTask = new Task(description, priority, dueDate);
+
+    if (!head) 
+    {
+        head = tail = newTask;
+    } else if (priority == "High") {
+        newTask->setNext(head);
+        head = newTask;
+    } else {
+        Task* current = head;
+        Task* previous = nullptr;
+
+        while (current && (current->getPriority() == "High" || (current->getPriority() == "Medium" && priority == "Low"))) 
+        {
+            previous = current;
+            current = current->getNext();
+        }
+
+        if (!previous) 
+        {
+            newTask->setNext(head);
+            head = newTask;
+        } else {
+            newTask->setNext(current);
+            previous->setNext(newTask);
+        }
+
+        if (!current)
+         {
+            tail = newTask;
+        }
+    }
+    count++;
 }
 
 void TaskList::removeTask(string description) {
