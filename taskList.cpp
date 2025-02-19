@@ -131,28 +131,7 @@ void TaskList::displayAllTasks() {
 }
 
 void TaskList::displayByPriority(string priority) {
-    if (!head) {
-        cout << "Task list is empty.\n";
-        return;
-    }
-
-    Task* current = head;
-    cout << "\n=== " << priority << " Priority Tasks ===\n";
-
-    bool found = false;
-    while (current) {
-        if (current->getPriority() == priority) {
-            cout << "Description: " << current->getDescription() << "\n"
-                 << "Due Date: " << current->getDueDate() << "\n"
-                 << "Completion Status: " << (current->getIsComplete() ? "Complete" : "Incomplete") << "\n\n";
-            found = true;
-        }
-        current = current->getNext();
-    }
-
-    if (!found) {
-        cout << "No tasks with " << priority << " priority found.\n";
-    }
+   //fix 
 }
 Task* TaskList::searchTask(string description) {
     Task* current = head;
