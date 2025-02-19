@@ -1,4 +1,6 @@
 #include "taskList.h"
+#include <iostream>
+using namespace std;
 
 // Setup a new TaskList
 TaskList::TaskList() {
@@ -8,8 +10,16 @@ TaskList::TaskList() {
 }
 
 TaskList::~TaskList() {
-    // TODO: Implement destructor
+    
+    Task* current = head;  //Implement destructor
+    while (current != nullptr)
+    {
+        Task* temp = current; 
+        current = current->getNext();
+        delete temp; 
+    }
 }
+
 
 void TaskList::addTask(string description, string priority, string dueDate) {
     // TODO: Implement addTask
