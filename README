@@ -1,4 +1,28 @@
 /* 
+How to run the program: 
+
+1 - User will input new task to the task list. Adds task description, priority and due date. 
+    The data is then entered and displays a message confirming that task has been added successfully.
+
+2 - User inputs the description of the task they want to remove. It then notifies the user that it has 
+    successfully removed task or say task not found. 
+
+
+3 - User inputs description of the task to be marked as complete and it notifies if task was successfully marked 
+    or not found. 
+
+4 - Displays all tasks listed, if no tasks then user is notified. 
+
+5 - User enters priority level to filter tasks. It then prints only the tasks matching that priority.
+    If not tasks, user will be notified
+
+6 - User inputs the description of the task they want to find. Details of tasks will be displayed if found. 
+
+7 - Program exists gracefully. Displays message that program has ended.alignas
+
+Default Case - Invalid choice, if any other number or letter apart from 1-7 is entered. 
+
+
 
 As I did my program, I had the help and support of various resources and collaborations. I used LLMS to guide and better my understanding
 during this process. They provided valuable assitance in coding practices and especially problem solving strategies. 
