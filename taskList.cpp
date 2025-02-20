@@ -62,7 +62,8 @@ void TaskList::addTask(string description, string priority, string dueDate)
     count++;
 }
 //Removes a task based on its description/name. 
-void TaskList::removeTask(string description) {
+void TaskList::removeTask(string description)
+ {
 
     if (!head)
      {
@@ -102,7 +103,8 @@ void TaskList::removeTask(string description) {
 }
 
 //Marks a task as complete based on its description. 
-void TaskList::markTaskComplete(string description) {
+void TaskList::markTaskComplete(string description)
+ {
     Task* current = head;
 
     while (current) {
@@ -118,7 +120,8 @@ void TaskList::markTaskComplete(string description) {
 }
 
 //Displays all tasks  placed by user. 
-void TaskList::displayAllTasks() {
+void TaskList::displayAllTasks() 
+{
     if (!head) {
         cout << "Task list is empty.\n";
         return;
@@ -137,12 +140,39 @@ void TaskList::displayAllTasks() {
 }
 
 //Displays taks by priority. 
-void TaskList::displayByPriority(string priority) {
-   //fix 
-}
+void TaskList::displayByPriority(string priority) 
+{
+   if (!head)
+   {
+    cout << "Task list is empty.\n";
+    return;
+   }
+
+   Task* current = head;
+   bool found = false; 
+
+   cout << "\n Tasks with Priorrity: " << priority << "\n";
+   while (current) {
+    if(current->getPriority() == priority) 
+    {
+        cout << "Description: " << current->getDescription() << "\n"
+                 << "Due Date: " << current->getDueDate() << "\n"
+                 << "Completion Status: " << (current->getIsComplete() ? "Complete" : "Incomplete") << "\n\n";
+            found = true;
+        }
+        current = current->getNext();
+    }
+
+    if (!found) {
+        cout << "No tasks found with priority: " << priority << ".\n";
+    } 
+    }
+   
+
 
 //Searches for a task based on description/name and returns a pointer. 
-Task* TaskList::searchTask(string description) {
+Task* TaskList::searchTask(string description)
+{
     Task* current = head;
 
     while (current) {
@@ -156,7 +186,8 @@ Task* TaskList::searchTask(string description) {
 }
 
 //returns the total number of tasks in the list. 
-int TaskList::getTaskCount() {
+int TaskList::getTaskCount() 
+{
     return count;
 }
 
