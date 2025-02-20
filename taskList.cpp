@@ -26,7 +26,8 @@ TaskList::~TaskList()
 //Adds a task to the task list 
 void TaskList::addTask(string description, string priority, string dueDate) 
 {
-
+    // @todo Run checks to see that the description, priority and due-date are in the correct format
+    // Can use regex for this again
     Task* newTask = new Task(description, priority, dueDate); //Creates a new task
 
     if (!head) 
@@ -176,6 +177,7 @@ Task* TaskList::searchTask(string description)
     Task* current = head;
 
     while (current) {
+        // @todo Use regex to search both the title and description of the task
         if (current->getDescription() == description) {
             return current;
         }
